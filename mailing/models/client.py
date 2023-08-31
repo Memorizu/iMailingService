@@ -4,7 +4,7 @@ from constants import NULLABLE
 
 
 class Client(models.Model):
-    email = models.EmailField(verbose_name='почта')
+    email = models.EmailField(verbose_name='почта', unique=True)
     first_name = models.CharField(verbose_name='имя', max_length=50)
     last_name = models.CharField(verbose_name='фамилия', max_length=50)
     comment = models.TextField(verbose_name='комментарий', **NULLABLE)

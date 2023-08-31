@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    "django_apscheduler",
     'users.apps.UsersConfig',
     'mailing.apps.MailingConfig',
     'home.apps.HomeConfig',
@@ -141,9 +142,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'users.User'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home'
 LOGOUT_REDIRECT_URL = '/'
-LOGIN_URL = '/users/'
+LOGIN_URL = '/'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -164,3 +165,5 @@ EMAIL_USE_TLS = False
 #             'LOCATION': os.getenv('LOCATION')
 #         }
 #     }
+
+

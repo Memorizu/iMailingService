@@ -4,13 +4,12 @@
         <main>
             <div class="py-5 text-center">
                 <h2>Создание Клиента</h2>
-                <p class="lead">Укажите название и сообщение, а также настройки для отправки рассылки.</p>
             </div>
             <div class="col-md-7 col-lg-8">
-
+                {% csrf_token %}
                 {{ form.as_p }}
                 <hr class="my-4">
-                <button class="w-100 btn btn-primary btn-lg" type="submit">Создать рассылку</button>
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Создать нового Клиента</button>
 
             </div>
         </main>
