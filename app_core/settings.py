@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    "django_apscheduler",
+    'django_apscheduler',
     'users.apps.UsersConfig',
     'mailing.apps.MailingConfig',
     'home.apps.HomeConfig',
+    'blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -156,14 +157,29 @@ EMAIL_USE_SSL = True
 EMAIL_USE_TLS = False
 
 
-# CACHE_ENABLED = os.getenv('CACHE_ENABLED')
-#
-# if CACHE_ENABLED:
-#     CACHES = {
-#         'default': {
-#             'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-#             'LOCATION': os.getenv('LOCATION')
-#         }
-#     }
+CACHE_ENABLED = os.getenv('CACHE_ENABLED')
+
+if CACHE_ENABLED:
+    CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+            'LOCATION': os.getenv('LOCATION')
+        }
+    }
 
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'logs' / 'django.log'
+        },
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'INFO',
+    },
+}

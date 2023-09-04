@@ -1,6 +1,7 @@
 import secrets
 
 from django.conf import settings
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.core.checks import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
@@ -9,7 +10,7 @@ from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import CreateView, UpdateView
 
-from users.forms import UserRegisterForm, UserProfileForm
+from users.forms import UserRegisterForm, UserProfileForm, ManagerProfileForm
 from users.models import User
 
 
@@ -53,6 +54,9 @@ class ProfileView(UpdateView):
     model = User
     form_class = UserProfileForm
     success_url = reverse_lazy('home:index')
+    permission_required = 'can_change_user_is_active'
 
     def get_object(self, queryset=None):
         return self.request.user
+
+

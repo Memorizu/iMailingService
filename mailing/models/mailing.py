@@ -29,6 +29,7 @@ class Mailing(models.Model):
     body = models.TextField(**NULLABLE, verbose_name='body')
     user = models.ForeignKey('users.User', on_delete=models.CASCADE, verbose_name='user')
     clients = models.ManyToManyField('mailing.Client', verbose_name='clients')
+    is_active = models.BooleanField(default=True, verbose_name='is_active')
 
     def __str__(self):
         return self.title
@@ -36,3 +37,7 @@ class Mailing(models.Model):
     class Meta:
         verbose_name = 'Mailing'
         verbose_name_plural = 'Mailings'
+
+        permissions = [
+            ('can_change_mailing_is_active', 'Can change mailing is active'),
+        ]
