@@ -1,6 +1,6 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.interval import IntervalTrigger
-from mailing.services import send_email, process_pending_mailings
+from mailing.services import  process_pending_mailings
 import logging
 from django.conf import settings
 

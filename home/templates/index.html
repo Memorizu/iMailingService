@@ -66,7 +66,6 @@
                 </div>
             </div>
 
-
             <div class="col-md-6">
                 {% for object_blog in blog|slice:":3" %}
                     <a href="{% url 'blog:blog_detail' object_blog.pk %}" class="list-group-item list-group-item-action py-3 lh-sm">
@@ -77,7 +76,6 @@
                         <div class="col-10 mb-1 small">{{ object_blog.body | truncatewords:10}}</div>
                     </a>
                 {% endfor %}
-
             </div>
         </div>
     </main>

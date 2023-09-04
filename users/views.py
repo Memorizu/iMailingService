@@ -1,16 +1,12 @@
 import secrets
-
 from django.conf import settings
-from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.core.checks import messages
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.views.generic import CreateView, UpdateView
-
-from users.forms import UserRegisterForm, UserProfileForm, ManagerProfileForm
+from users.forms import UserRegisterForm, UserProfileForm
 from users.models import User
 
 

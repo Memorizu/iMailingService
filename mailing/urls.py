@@ -4,6 +4,7 @@ from mailing.apps import MailingConfig
 from mailing.views import MailingCreateView, MailingListView, ClientCreateView, ClientListView, MailingUpdateView, \
     MailingDeleteView, ClientDeleteView, ClientUpdateView, MailingLogListView
 
+
 app_name = MailingConfig.name
 
 
